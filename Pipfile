@@ -1,10 +1,10 @@
 [packages]
 fastapi = "==0.68.1"
 uvicorn = "==0.15.0"
+asyncpg = "*"
 
 [requires]
 python_version ="3.7"
 
 [scripts]
-server = "python main.py"
 start = "uvicorn asgi:app --reload"

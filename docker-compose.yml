@@ -11,5 +11,5 @@
 backend:
   build: .
   ports:
-    - 8080:80
+    - "8000:80"
   container_name: finance-backend

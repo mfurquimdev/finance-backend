@@ -6,6 +6,22 @@ from app.log_manager import log
 
 router = APIRouter()
 
+@router.get("/",
+            tags=["/"],
+            summary="""Endpoint to say hello""")
+def hello_world():
+    """ Say hellor
+
+        Args:
+            None
+
+        Returns:
+            str: 'Hello World!'
+    """
+    log.info('GET hello_world()')
+
+    return 'Hello World!'
+
 @router.post("/transaction",
             tags=["/transaction"],
             summary="""Endpoint to retrieve a transaction""")
@@ -18,6 +34,9 @@ def retrieve_transaction(transaction: TransactionInput):
         Returns:
             Transaction: A Transaction model
     """
-    log.info('POST retrieve_transaction({transaction})')
+    log.info(f'POST retrieve_transaction({transaction})')
 
-    make_transaction(transaction.date)
+    made_transaction = make_transaction(make_transaction(transaction.transaction_date))
+    log.info(f'Return of make_transaction -> {made_transaction}')
+
+    return made_transaction
