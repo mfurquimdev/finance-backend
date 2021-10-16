@@ -1,16 +1,17 @@
-# postgres:
-#   image: postgres:11
-#   ports:
-#     - 5432:5432
-#   environment:
-#     POSTGRES_PASSWORD: finance
-#     POSTGRES_USER: finance
-#     POSTGRES_DB: finance
-#   container_name: finance-db
-
 services:
-  backend:
-    build: .
+#  backend:
+#    build: .
+#    ports:
+#      - "8000:80"
+#    container_name: finance-backend
+
+  postgres:
+    image: postgres:11
     ports:
-      - "8000:80"
-    container_name: finance-backend
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: finance
+      POSTGRES_USER: finance
+      POSTGRES_DB: finance
+    container_name: finance-db
+
