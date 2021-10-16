@@ -36,7 +36,7 @@ def retrieve_transaction(transaction: TransactionInput):
     """
     log.info(f'POST retrieve_transaction({transaction})')
 
-    made_transaction = make_transaction(transaction.transaction_date)
+    made_transaction = make_transaction(transaction)
     log.info(f'Return of make_transaction -> {made_transaction}')
 
     return made_transaction

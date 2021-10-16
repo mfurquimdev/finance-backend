@@ -1,8 +1,9 @@
 from app.log_manager import log
 from datetime import date
+from .model import TransactionInput
 
 
-def make_transaction(input_date: date = date.today()):
-    log.info(f'calling make_transaction({input_date})')
+def make_transaction(transaction: TransactionInput):
+    log.info(f'calling make_transaction({transaction})')
 
-    return input_date
+    return transaction
