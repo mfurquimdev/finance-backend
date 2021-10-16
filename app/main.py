@@ -53,7 +53,7 @@ def get_app():
     return app
 
 def load_modules(app):
-    log.info(f'load_modules({app})')
+    log.info(f'load_modules({app.__dict__})')
 
     app.include_router(
         transaction_router,
