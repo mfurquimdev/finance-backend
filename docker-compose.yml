@@ -8,8 +8,9 @@
 #     POSTGRES_DB: finance
 #   container_name: finance-db
 
-backend:
-  build: .
-  ports:
-    - "8000:80"
-  container_name: finance-backend
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:80"
+    container_name: finance-backend
