@@ -1,3 +1,5 @@
+version: '3.3'
+
 services:
   backend:
     build: .
@@ -24,3 +26,7 @@ services:
       POSTGRES_DB: finance
     container_name: finance-db
 
+  grafana:
+    build: ./grafana/
+    ports:
+      - 3000:3000
