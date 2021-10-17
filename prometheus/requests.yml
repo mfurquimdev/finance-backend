@@ -1,29 +1,23 @@
 groups:
 - name: Traffic
   rules:
-    - record: http_request_duration_seconds_total:sum_irate
-      expr: sum(irate(http_request_duration_seconds_count[1m])) by (method, handler)
+    - record: http_requests_traffic_rate
+      expr: sum by(method, handler, status) (irate(http_requests_total[1m]))
 
 
 - name: Errors
   rules:
-    - record: http_request_duration_seconds_error:sum_irate
-      expr: sum(irate(http_request_duration_seconds_count{status=~"2[d]{2}"}[1m])) by (method, handler)
-
-    - record:  http_request_duration_seconds_error_rate
+    - record: http_requests_error_rate
       expr:
-        http_request_duration_seconds_error:sum_irate
+        sum by(method, handler) (irate(http_requests_total{status!="2xx"}[1m]))
         /
-        http_request_duration_seconds_total:sum_irate
+        sum by(method, handler) (irate(http_requests_total[1m]))
 
 
 - name: Latency
   rules:
-    - record: http_request_duration_seconds_sum:sum_irate
-      expr: sum(irate(http_request_duration_seconds_sum[1m])) by (method, handler)
-
-    - record:  http_request_duration_seconds_latencia_media
+    - record: http_request_latency_rate
       expr:
-        http_request_duration_seconds_sum:sum_irate
+        sum by(method, handler) (irate(http_request_duration_seconds_sum[1m]))
         /
-        http_request_duration_seconds_total:sum_irate
+        sum by(method, handler) (irate(http_request_duration_seconds_count[1m]))
