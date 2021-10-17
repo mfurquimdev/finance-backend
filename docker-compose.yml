@@ -1,9 +1,18 @@
 services:
-#  backend:
-#    build: .
-#    ports:
-#      - "8000:80"
-#    container_name: finance-backend
+  backend:
+    build: .
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    container_name: finance-backend
+
+  prometheus:
+    build: ./prometheus/
+    ports:
+      - 9090:9090
+    container_name: finance-prometheus
+
 
   postgres:
     image: postgres:11
