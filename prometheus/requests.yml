@@ -4,6 +4,8 @@ groups:
     - record: http_requests_traffic_rate
       expr: sum by(method, handler, status) (irate(http_requests_total[1m]))
 
+    - record: http_requests_traffic_rate_by_handler
+      expr: sum by(handler) (irate(http_requests_total[1m]))
 
 - name: Errors
   rules:
