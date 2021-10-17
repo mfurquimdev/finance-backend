@@ -3,6 +3,7 @@ fastapi = "==0.68.1"
 uvicorn = "==0.15.0"
 asyncpg = "*"
 prometheus-fastapi-instrumentator = "*"
+aiofiles = "*"
 
 [dev-packages]
 ipdb = "*"

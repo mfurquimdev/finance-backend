@@ -3,6 +3,7 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
+from starlette.responses import FileResponse
 from typing import Optional
 
 from .log_manager import log
@@ -10,6 +11,12 @@ from .log_manager import log
 from app.transaction.view import router as transaction_router
 
 app = FastAPI(title="Finance MFurquim Dev")
+
+favicon_path = 'app/favicon.ico'
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse(favicon_path)
 
 @app.exception_handler(UniqueViolationError)
 async def unique_violation_error_exception_handler(request: Request,
