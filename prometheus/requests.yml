@@ -1,0 +1,25 @@
+groups:
+- name: Traffic
+  rules:
+    - record: http_requests_traffic_rate
+      expr: sum by(method, handler, status) (irate(http_requests_total[1m]))
+
+    - record: http_requests_traffic_rate_by_handler
+      expr: sum by(handler) (irate(http_requests_total[1m]))
+
+- name: Errors
+  rules:
+    - record: http_requests_error_rate
+      expr:
+        sum by(method, handler) (irate(http_requests_total{status!="2xx"}[1m]))
+        /
+        sum by(method, handler) (irate(http_requests_total[1m]))
+
+
+- name: Latency
+  rules:
+    - record: http_request_latency_rate
+      expr:
+        sum by(method, handler) (irate(http_request_duration_seconds_sum[1m]))
+        /
+        sum by(method, handler) (irate(http_request_duration_seconds_count[1m]))
