@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1634499895994,
+  "iteration": 1634508175269,
   "links": [],
   "panels": [
     {
@@ -33,8 +33,8 @@
       "scopedVars": {
         "handler": {
           "selected": true,
-          "text": "/metrics",
-          "value": "/metrics"
+          "text": "none",
+          "value": "none"
         }
       },
       "title": "$method $handler",
@@ -76,8 +76,8 @@
       "scopedVars": {
         "handler": {
           "selected": true,
-          "text": "/metrics",
-          "value": "/metrics"
+          "text": "none",
+          "value": "none"
         }
       },
       "seriesOverrides": [
@@ -187,8 +187,8 @@
       "scopedVars": {
         "handler": {
           "selected": true,
-          "text": "/metrics",
-          "value": "/metrics"
+          "text": "none",
+          "value": "none"
         }
       },
       "seriesOverrides": [
@@ -253,7 +253,7 @@
           "format": "s",
           "label": "Percentage",
           "logBase": 1,
-          "max": "1",
+          "max": null,
           "min": null,
           "show": true
         }
@@ -298,8 +298,8 @@
       "scopedVars": {
         "handler": {
           "selected": true,
-          "text": "/metrics",
-          "value": "/metrics"
+          "text": "none",
+          "value": "none"
         }
       },
       "seriesOverrides": [
@@ -383,7 +383,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "tags": [],
           "text": "/metrics",
           "value": "/metrics"
         },
@@ -401,7 +401,7 @@
             "value": "/"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "/metrics",
             "value": "/metrics"
           },
@@ -411,7 +411,7 @@
             "value": "/transaction"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "none",
             "value": "none"
           }
@@ -430,7 +430,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "tags": [],
           "text": "2xx",
           "value": "2xx"
         },
@@ -467,7 +467,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "tags": [],
           "text": "GET",
           "value": "GET"
         },
@@ -533,7 +533,7 @@
     ]
   },
   "timezone": "",
-  "title": "New dashboard Copy",
+  "title": "Golden Signals",
   "uid": "d_2Qaddnk",
-  "version": 4
+  "version": 5
 }
